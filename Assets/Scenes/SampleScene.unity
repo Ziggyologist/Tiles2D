@@ -21404,6 +21404,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2247374306292776969, guid: 6ca7cea99e27b3840a2574c9065e35b4, type: 3}
+      propertyPath: deathKick.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3172958208299149183, guid: 6ca7cea99e27b3840a2574c9065e35b4, type: 3}
       propertyPath: m_Name
       value: Player
