@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         if (!feetCollider2d.IsTouchingLayers(ladderLayer))
         {
             rb.gravityScale = gravityScaleAtStart;
+            animator.SetBool("isClimbing", false);
             return; 
         }
         rb.gravityScale = 0f;
