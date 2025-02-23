@@ -104,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             animator.SetTrigger("Dying");
             rb.linearVelocity = deathKick;
+            FindFirstObjectByType<GameSession>().ProcessPlayerDeath();
         }
     }
 

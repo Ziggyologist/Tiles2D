@@ -20,7 +20,12 @@ public class LevelExit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(LoadNextLevel());
+        if(collision.gameObject.tag != "Bullet")
+        {
+            Debug.Log("Bullet collision with other than player");
+            StartCoroutine(LoadNextLevel());
+        }
+
     }
 
     IEnumerator LoadNextLevel()
