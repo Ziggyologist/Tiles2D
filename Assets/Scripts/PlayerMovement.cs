@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
+        //Debug.Log(moveInput);
     }
 
     void OnJump(InputValue value) 
