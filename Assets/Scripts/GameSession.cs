@@ -57,6 +57,7 @@ public class GameSession : MonoBehaviour
     void ResetGameSession()
     {
         SceneManager.LoadScene(0);
+        FindFirstObjectByType<ScenePersist>().ResetScenePersist();
         Destroy(gameObject);
     }
     public void AddToScore(int scoreToAdd)
