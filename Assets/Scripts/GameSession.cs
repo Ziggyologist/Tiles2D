@@ -1,10 +1,16 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
+    [SerializeField] int totalScore = 0;
+    [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI scoreText;
+
     void Awake()
     {
         //we want to keep the original game session object alive between scenes
@@ -17,6 +23,13 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    void Start()
+    {
+        livesText.text = playerLives.ToString();
+        scoreText.text = totalScore.ToString();
+
     }
 
 
@@ -38,12 +51,17 @@ public class GameSession : MonoBehaviour
         playerLives--;
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
-        Debug.Log("current lives: " + playerLives);
+        livesText.text = playerLives.ToString();
     }
 
     void ResetGameSession()
     {
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+    }
+    public void AddToScore(int scoreToAdd)
+    {
+        totalScore += scoreToAdd;
+        scoreText.text = totalScore.ToString();
     }
 }
