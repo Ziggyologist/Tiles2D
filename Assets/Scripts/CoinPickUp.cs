@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CoinPickUp : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] int score = 100;
+    [SerializeField] AudioClip coinPickUpSFX;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(collision.gameObject.tag == "Player")
+        {
+            //FindObjectOfType<GameSession>().AddToScore(score);
+            AudioSource.PlayClipAtPoint(coinPickUpSFX, Camera.main.transform.position);
+            Destroy(gameObject);
+        }
     }
 }
